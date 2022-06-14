@@ -23,7 +23,7 @@ const routes = [
     path: "/models",
     component: () => import("layouts/MainLayout.vue"),
     children: [
-      { path: "", component: () => import("pages/ModelsPage.vue") },
+      { path: "", component: () => import("pages/ModelListPage.vue") },
     ],
   },
   // Always leave this as last one,
