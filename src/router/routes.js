@@ -8,6 +8,13 @@ const routes = [
     ]
   },
   {
+    path: '/create_inference',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/SendInferencePage.vue') }
+    ]
+  },
+  {
     path: "/signin",
     component: () => import("layouts/LoginLayout.vue"),
     children: [{ path: "", component: () => import("pages/LoginPage.vue") }],
