@@ -72,7 +72,7 @@ const linksList = [
     title: "Modelos",
     caption: "Consulte os modelos disponíveis",
     icon: "api",
-    to: "/create_inference",
+    to: "/models",
   },
   {
     title: "Suporte",
