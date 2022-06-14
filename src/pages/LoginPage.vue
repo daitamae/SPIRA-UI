@@ -16,9 +16,7 @@
           ref="username"
           square
           clearable
-          v-model="username"
           type="username"
-          :rules="[this.required, this.short]"
           label="Usuário"
           class="q-px-sm q-pt-sm"
         >
@@ -30,10 +28,7 @@
           ref="password"
           square
           clearable
-          v-model="password"
           type="password"
-          lazy-rules
-          :rules="[this.required, this.short]"
           label="Senha"
           class="q-px-sm q-pt-sm"
         >
@@ -47,7 +42,6 @@
           unelevated
           size="lg"
           color="primary"
-          @click="submit"
           class="full-width text-white"
           label="Entrar"
         />
