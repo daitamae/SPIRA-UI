@@ -5,6 +5,7 @@ node_modules
 # Quasar core related directories
 .quasar
 .vscode
+.env
 /dist
 /public/icons/
 
