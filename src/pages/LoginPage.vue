@@ -1,3 +1,7 @@
+<style>
+  @import '/src/css/styles/login.css';
+</style>
+
 <template>
   <q-page
     class="window-height window-width row justify-center items-center"
@@ -53,14 +57,6 @@
   </q-page>
 </template>
 
-<style>
-.q-card {
-  width: 22.5rem;
-  width: 80%;
-  max-width: 400px;
-  height: 540px;
-}
-</style>
 
 <script>
 import { ref } from 'vue'
