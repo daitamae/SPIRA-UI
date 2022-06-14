@@ -66,7 +66,7 @@ const linksList = [
     title: "Histórico de Inferências",
     caption: "Inferências anteriores",
     icon: "view_list",
-    to: "/inference",
+    to: "/inferences",
   },
   {
     title: "Modelos",
