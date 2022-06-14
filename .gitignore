@@ -5,7 +5,9 @@ node_modules
 # Quasar core related directories
 .quasar
 .vscode
+.env
 /dist
+/public/icons/
 
 # Cordova related directories and files
 /src-cordova/node_modules
