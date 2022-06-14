@@ -13,7 +13,7 @@
       </q-card-section>
       <q-form class="q-px-sm q-pt-xl">
         <q-input
-          ref="username"
+          v-model="username"
           square
           clearable
           type="username"
@@ -25,7 +25,7 @@
           </template>
         </q-input>
         <q-input
-          ref="password"
+          v-model="password"
           square
           clearable
           type="password"
@@ -61,3 +61,16 @@
   height: 540px;
 }
 </style>
+
+<script>
+import { ref } from 'vue'
+
+export default {
+  setup() {
+    return {
+      username: ref(null),
+      password: ref(null),
+    };
+  },
+};
+</script>
