@@ -16,7 +16,7 @@
       />
     </q-card>
     <q-dialog v-model="card">
-      <q-card class="result-card">
+      <q-card>
         <div v-if="selected_row.status == 'processing'">
           <q-card-section class="result-header-processing q-py-xl">
             <a class="text-h4 text-white">Resultado</a>
@@ -33,7 +33,7 @@
           </q-card-section>
         </div>
         <q-card-section class="row q-px-xl q-py-md items-center" horizontal>
-          <q-card class="q-px-md" bordered>
+          <q-card class="q-px-md orientation-landscape" bordered>
             <p class="text-body1 text-no-wrap"><b>Modelo:</b></p>
             <p>{{ selected_row.model }}</p>
             <p class="text-body1 text-no-wrap"><b>Idade:</b></p>
@@ -51,7 +51,8 @@
             </p>
             <p>{{ selected_row.created_in }}</p>
           </q-card>
-          <q-card class="q-pl-xl q-pb-xl text-center status-card">
+          <q-space style="width:25px" class="orientation-landscape"/>
+          <q-card class="q-pb-xl text-center status-card">
             <div v-if="selected_row.status == 'processing'">
               <h6 class="text-body1 q-py-sm">Inferência em andamento...</h6>
               <q-spinner-hourglass color="accent" size="10em" />
@@ -86,14 +87,11 @@
   max-height: 95%;
 }
 
-.result-card {
-  max-width: 95%;
-  width: 800px;
-  max-height: 95%;
-}
+
 
 .result-header-processing {
   background: linear-gradient(to right, #4c2289, #fda31c);
+  width:100%;
 }
 
 .result-header-error {
