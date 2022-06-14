@@ -1,3 +1,8 @@
+<style>
+@import '/src/css/styles/inferenceList.css';
+@import '/src/css/styles/modelList.css';
+</style>
+
 <template>
   <q-page class="window-height row justify-center items-center">
     <h2 class="h2-text text-primary">Modelos</h2>
@@ -30,41 +35,7 @@
   </q-page>
 </template>
 
-<style>
-.table-card {
-  width: 95%;
-  height: 800px;
-  max-height: 95%;
-}
 
-.result-header {
-  background: linear-gradient(to right, #4c2289, #006ed4);
-}
-
-.table {
-  height: 800px;
-}
-
-
-.screenwide {
-  max-width: 100%;
-}
-
-.screenwide .q-table {
-  max-width: 100%;
-  max-height: 100px;
-}
-
-.screenwide td {
-  white-space: normal;
-  word-wrap: normal;
-  hyphens: manual;
-}
-
-.screenwide th {
-  text-align: center;
-}
-</style>
 
 <script>
 import { ref } from "vue";

@@ -1,3 +1,7 @@
+<style>
+@import '/src/css/styles/sendInference.css';
+</style>
+
 <template>
   <q-page class="window-height window-width row justify-center items-center"
   style="background: linear-gradient(to top, #4c2289, #dad0fa)">
@@ -61,14 +65,7 @@
   </q-page>
 </template>
 
-<style>
-.q-card {
-  width: 22.5rem;
-  width: 80%;
-  max-width: 400px;
-  height: 750px;
-}
-</style>
+
 
 <script>
 import { ref } from 'vue'
