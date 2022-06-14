@@ -19,7 +19,7 @@
           v-model="username"
           type="username"
           :rules="[this.required, this.short]"
-          label="Username"
+          label="Usuário"
           class="q-px-sm q-pt-sm"
         >
           <template v-slot:prepend>
@@ -34,7 +34,7 @@
           type="password"
           lazy-rules
           :rules="[this.required, this.short]"
-          label="Password"
+          label="Senha"
           class="q-px-sm q-pt-sm"
         >
           <template v-slot:prepend>
@@ -49,7 +49,7 @@
           color="primary"
           @click="submit"
           class="full-width text-white"
-          label="Sign In"
+          label="Entrar"
         />
       </q-card-actions>
       <q-card-section class="text-center q-pa-sm">
