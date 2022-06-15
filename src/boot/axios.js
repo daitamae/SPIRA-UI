@@ -1,6 +1,6 @@
 import { boot } from 'quasar/wrappers'
 import axios from 'axios'
-import './loadEnv';
+
 
 const api = axios.create({ baseURL: process.env.API_URL })
 

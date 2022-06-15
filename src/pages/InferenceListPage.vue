@@ -88,6 +88,8 @@
 
 <script>
 import { ref } from "vue";
+import { api } from "/src/boot/axios";
+
 const columns = [
   {
     name: "model",
@@ -128,115 +130,6 @@ const columns = [
   },
   { name: "status", align: "center", label: "Status", field: "status" },
 ];
-const rows = [
-  {
-    id: "fake_id_1",
-    model: "fake_model_1",
-    age: 20,
-    sex: "M",
-    breathlessness_level: 5,
-    created_in: "31-12-2021",
-    status: "completed",
-  },
-  {
-    id: "fake_id_2",
-    model: "fake_model_2",
-    age: 23,
-    sex: "F",
-    breathlessness_level: 5,
-    created_in: "31-12-2021",
-    status: "completed",
-  },
-  {
-    id: "fake_id_3",
-    model: "fake_model_2",
-    age: 23,
-    sex: "F",
-    breathlessness_level: 5,
-    created_in: "31-12-2021",
-    status: "processing",
-  },
-  {
-    id: "fake_id_1",
-    model: "fake_model_2",
-    age: 23,
-    sex: "F",
-    breathlessness_level: 10,
-    created_in: "01-03-2022",
-    status: "error",
-  },
-  {
-    id: "fake_id_1",
-    model: "fake_model_3",
-    age: 23,
-    sex: "F",
-    breathlessness_level: 4,
-    created_in: "31-12-2021",
-    status: "completed",
-  },
-  {
-    id: "fake_id_1",
-    model: "fake_model_2",
-    age: 62,
-    sex: "M",
-    breathlessness_level: 1,
-    created_in: "31-12-2021",
-    status: "processing",
-  },
-  {
-    model: "fake_model_1",
-    age: 20,
-    sex: "M",
-    breathlessness_level: 5,
-    created_in: "31-12-2021",
-    status: "completed",
-  },
-  {
-    id: "fake_id_1",
-    model: "fake_model_2",
-    age: 23,
-    sex: "F",
-    breathlessness_level: 5,
-    created_in: "31-12-2021",
-    status: "completed",
-  },
-  {
-    id: "fake_id_1",
-    model: "fake_model_2",
-    age: 23,
-    sex: "F",
-    breathlessness_level: 5,
-    created_in: "31-12-2021",
-    status: "processing",
-  },
-  {
-    id: "fake_id_1",
-    model: "fake_model_2",
-    age: 23,
-    sex: "F",
-    breathlessness_level: 10,
-    created_in: "01-03-2022",
-    status: "error",
-  },
-  {
-    id: "fake_id_1",
-    model: "fake_model_3",
-    age: 23,
-    sex: "F",
-    breathlessness_level: 4,
-    created_in: "31-12-2021",
-    status: "completed",
-  },
-  {
-    id: "fake_id_1",
-    model: "fake_model_2",
-    age: 62,
-    sex: "M",
-    breathlessness_level: 1,
-    created_in: "31-12-2021",
-    status: "processing",
-  },
-];
 
 const result = { diagnosis: false };
 
@@ -244,7 +137,7 @@ export default {
   setup() {
     return {
       columns,
-      rows,
+      rows:ref([]),
       selected_row: ref({}),
       results: ref({}),
       card: ref(false),
@@ -257,5 +150,10 @@ export default {
       this.results = result;
     },
   },
+  mounted () {
+    api
+      .get('/v1/users/fake_user_id/inferences')
+      .then(response =>{this.rows=response.data.inferences})
+  }
 };
 </script>

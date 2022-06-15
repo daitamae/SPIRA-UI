@@ -15,6 +15,10 @@
     "axios": "^0.27.2",
     "core-js": "^3.6.5",
     "dotenv": "^16.0.1",
+    "fs": "^0.0.1-security",
+    "null-loader": "^4.0.1",
+    "os": "^0.1.2",
+    "path": "^0.12.7",
     "quasar": "^2.6.0",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0"
@@ -22,6 +26,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.14",
     "@quasar/app-webpack": "^3.0.0",
+    "@quasar/quasar-app-extension-dotenv": "^1.1.0",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^8.5.0",

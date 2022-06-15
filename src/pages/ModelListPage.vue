@@ -39,6 +39,8 @@
 
 <script>
 import { ref } from "vue";
+import { api } from "/src/boot/axios";
+
 const columns = [
   {
     name: "model",
@@ -64,63 +66,12 @@ const columns = [
     sortable: true,
   },
 ];
-const rows = [
-  {
-    id: "fake_id_1",
-    name: "fake_model_1",
-    created_in: "31-12-2021",
-    version:"1.0.0",
-    description:"Descrição breve do modelo ... João amava Teresa que amava Raimundo"+
-      "que amava Maria que amava Joaquim que amava Lili,"+
-      "que não amava ninguém."+
-      "João foi para os Estados Unidos, Teresa para o convento,"+
-      "Raimundo morreu de desastre, Maria ficou para tia,"+
-      "Joaquim suicidou-se e Lili casou com J. Pinto Fernandes"+
-      "que não tinha entrado na história."
-  },
-  {
-    id: "fake_id_2",
-    name: "fake_model_2",
-    created_in: "31-12-2021",
-    version:"1.0.1",
-    description:"No meio do caminho tinha uma pedra"+
-      "tinha uma pedra no meio do caminho"+
-      "tinha uma pedra"+
-      "no meio do caminho tinha uma pedra."
-  },
-  {
-    id: "fake_id_3",
-    name: "fake_model_3",
-    created_in: "31-12-2021",
-    version:"2.1.0",
-    description: "Nunca me esquecerei desse acontecimento"+
-      "na vida de minhas retinas tão fatigadas."+
-      "Nunca me esquecerei que no meio do caminho"+
-      "tinha uma pedra"+
-      "tinha uma pedra no meio do caminho"+
-      "no meio do caminho tinha uma pedra."
-  },
-  {
-    id: "fake_id_1",
-    name: "fake_model_4",
-    created_in: "01-03-2022",
-    version:"3.1.0",
-    description: "Minha terra tem palmeiras,"+
-      "Onde canta o Sabiá;"+
-      "As aves, que aqui gorjeiam,"+
-      "Não gorjeiam como lá."+
-      "Nosso céu tem mais estrelas,"+
-      "Nossas várzeas têm mais flores,"+
-      "Nossos bosques têm mais vida,"+
-      "Nossa vida mais amores."
-  },
-];
 
 export default {
   setup() {
     return {
       columns,
-      rows,
+      rows:ref([]),
       selected_row: ref({}),
       card: ref(false),
     };
@@ -131,5 +82,10 @@ export default {
       this.card = true;
     },
   },
+  mounted () {
+    api
+      .get('/v1/models')
+      .then(response =>{this.rows=response.data.models})
+  }
 };
 </script>
