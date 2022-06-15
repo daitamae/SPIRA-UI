@@ -6,20 +6,10 @@
 <template>
   <q-page class="window-height row justify-center items-center">
     <h2 class="h2-text text-primary">Modelos</h2>
-    <q-card square class="table-card">
-      <q-table
-        table-class="screenwide"
-        title="Modelos disponíveis"
+    <ListTable
+    title="Modelos disponíveis"
         :rows="rows"
-        :columns="columns"
-        row-key="name"
-        @row-click="onRowClick"
-        class="table text-h4"
-        virtual-scroll
-        v-model:pagination="pagination"
-        :rows-per-page-options="[0]"
-      />
-    </q-card>
+        :columns="columns"/>
     <q-dialog v-model="card">
       <q-card>
         <q-card-section class="result-header q-py-xl">
@@ -40,6 +30,7 @@
 <script>
 import { ref } from "vue";
 import { api } from "/src/boot/axios";
+import ListTable from "components/ListTable.vue";
 
 const columns = [
   {
@@ -68,6 +59,9 @@ const columns = [
 ];
 
 export default {
+  components: {
+    ListTable
+  },
   setup() {
     return {
       columns,

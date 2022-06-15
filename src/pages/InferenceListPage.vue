@@ -5,20 +5,12 @@
 <template>
   <q-page class="window-height row justify-center items-center">
     <h2 class="h2-text text-primary">Inferências</h2>
-    <q-card square class="table-card">
-      <q-table
-        table-class="screenwide"
-        title="Minhas inferências"
-        :rows="rows"
-        :columns="columns"
-        row-key="name"
-        @row-click="onRowClick"
-        class="table text-h4"
-        virtual-scroll
-        v-model:pagination="pagination"
-        :rows-per-page-options="[0]"
+    <ListTable
+      title="Minhas Inferências"
+      :rows="rows"
+      :columns="columns"
+      @row-click="onRowClick"
       />
-    </q-card>
     <q-dialog v-model="card">
       <q-card>
         <div v-if="selected_row.status == 'processing'">
@@ -89,6 +81,7 @@
 <script>
 import { ref } from "vue";
 import { api } from "/src/boot/axios";
+import ListTable from "components/ListTable.vue";
 
 const columns = [
   {
@@ -134,6 +127,9 @@ const columns = [
 const result = { diagnosis: false };
 
 export default {
+  components: {
+    ListTable,
+  },
   setup() {
     return {
       columns,
