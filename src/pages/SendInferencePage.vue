@@ -69,6 +69,7 @@
 
 <script>
 import { ref } from 'vue'
+import { api } from '/src/boot/axios'
 const options = [
   {
     id: "fake_id_1",
@@ -131,5 +132,10 @@ export default {
       options,
     };
   },
+  mounted () {
+    api
+      .get('/v1/users/fake_user_id/models')
+      .then(response =>{this.options=response.data.models})
+  }
 };
 </script>
